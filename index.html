@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Curadoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Menu Lateral fixo */
+        nav {
+            width: 300px; 
+            padding: 40px 0 0 40px;
+            position: fixed;
+            height: 100%;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .location-tag {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 1.0rem; 
+            letter-spacing: 0.8px;
+            opacity: 0.9; 
+            transition: opacity 0.5s ease;
+        }
+
+        nav ul li a:hover {
+            opacity: 1;
+        }
+
+        /* Área de Conteúdo */
+        main {
+            margin-left: 300px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            padding: 115px 60px 300px 120px; 
+            box-sizing: border-box;
+        }
+
+        .titulo-secao {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 30px; 
+            color: #1a1a1a;
+            letter-spacing: 2px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .sessao {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 360px; 
+        }
+
+        .foto-capa, .foto-grande {
+            width: 75%;
+            max-width: 1000px;
+            margin-bottom: 210px; 
+        }
+
+        .capa-dupla, .camada-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 75%;
+            max-width: 1000px;
+            margin-bottom: 210px;
+        }
+
+        .foto-capa img, .foto-grande img, .grid-item img, .camada-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            column-gap: 40px; 
+            row-gap: 120px; 
+            width: 90%; 
+            max-width: 1200px;
+            margin-bottom: 210px;
+        }
+
+        /* --- SESSÃO SANTOS --- */
+        #santos .foto-capa {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .dupla-santos-grande {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 72%; 
+            max-width: 960px; 
+            margin-bottom: 210px;
+        }
+
+        .dupla-santos-grande img {
+            width: calc(50% - 20px);
+            height: auto;
+        }
+
+        /* ESCALAS REDUZIDAS (37.5%) */
+        #retangular .foto-capa, 
+        #caminho .foto-capa,
+        #outras-frutas .foto-capa,
+        #subsolo .foto-capa,
+        #curvas .foto-capa,
+        #copos .foto-capa,
+        #tropicais .foto-capa,
+        #retangular .foto-grande,
+        #no-series .foto-capa,
+        #experimental .foto-capa {
+            width: 37.5%; 
+            max-width: 500px; 
+        }
+
+        /* AJUSTE ESPECÍFICO URBANO */
+        #urbano .foto-capa {
+            width: 67.5%; 
+            max-width: 900px;
+        }
+
+        .container-urbano-alinhado {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: stretch !important;
+            gap: 40px !important;
+            width: 80% !important; 
+            max-width: 960px !important;
+            margin-bottom: 210px;
+        }
+
+        .img-u3-alinhada {
+            width: calc(62.3% - 20px) !important;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .img-u6-alinhada {
+            width: calc(37.7% - 20px) !important;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .container-u4-alinhada {
+            width: 80% !important;
+            max-width: 960px !important;
+            display: flex !important;
+            justify-content: flex-start !important; 
+            margin-bottom: 210px;
+        }
+
+        .img-u4-posicionada {
+            width: calc(62.3% - 20px) !important; 
+            height: auto;
+            display: block;
+        }
+
+        #perfil .foto-capa {
+            width: 63.75%;
+            max-width: 850px;
+        }
+
+        #subsolo .capa-dupla,
+        #tropicais .capa-dupla,
+        #retangular .camada-grid {
+            width: 60%; 
+            max-width: 800px;
+        }
+
+        #curvas .camada-grid {
+            width: 90%; 
+            max-width: 1200px;
+        }
+
+        #copos .camada-mista {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 210px;
+            width: 90%; 
+            max-width: 1200px;
+        }
+        
+        .img-igual-m1 { width: 33.3%; }
+
+        #sahara .capa-dupla,
+        #peras .capa-dupla {
+            width: 90%; 
+            max-width: 1200px; 
+        }
+
+        /* CONTAINER TRIO SAHARA - AJUSTADO DISTÂNCIA */
+        .trio-sahara {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: -110px; /* Reduz a distância entre o grid acima e este trio */
+            margin-bottom: 210px;
+        }
+        .trio-sahara img {
+            width: calc(33.33% - 27px);
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="location-tag">
+            Brazilian artist. Based in São Paulo.<br>
+            @b.rzil
+        </div>
+        <ul>
+            <li><a href="#santos">Santos</a></li>
+            <li><a href="#sahara">Sahara</a></li>
+            <li><a href="#retangular">Retangular</a></li>
+            <li><a href="#subsolo">Ocupação do subsolo</a></li>
+            <li><a href="#caminho">Caminho</a></li>
+            <li><a href="#curvas">Curvas</a></li>
+            <li><a href="#peras">Peras</a></li>
+            <li><a href="#outras-frutas">Outras frutas</a></li>
+            <li><a href="#copos">Copos, xícaras e afins</a></li>
+            <li><a href="#tropicais">Objetos tropicais</a></li>
+            <li><a href="#urbano">Urbano</a></li> 
+            <li><a href="#perfil">Perfil</a></li>
+            <li><a href="#experimental">Experimental</a></li>
+            <li><a href="#no-series">No series</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="santos" class="sessao">
+            <h1 class="titulo-secao">Santos</h1>
+            <div class="foto-capa"><img src="santos1.jpeg" alt="Santos 1"></div>
+            <div class="grid-galeria">
+                <div class="grid-item"><img src="santos2.jpeg" alt="Santos 2"></div>
+                <div class="grid-item"><img src="santos3.jpeg" alt="Santos 3"></div>
+                <div class="grid-item"><img src="santos5.jpeg" alt="Santos 5"></div>
+            </div>
+            
+            <div class="dupla-santos-grande">
+                <img src="santos4.jpeg" alt="Santos 4">
+                <img src="santos6.jpeg" alt="Santos 6">
+            </div>
+        </section>
+
+        <section id="sahara" class="sessao">
+            <h2 class="titulo-secao">Sahara</h2>
+            <div class="capa-dupla">
+                <img src="Sahara1.jpeg" alt="Sahara 1" style="width: calc(50% - 20px);">
+                <img src="Sahara3.jpeg" alt="Sahara 3" style="width: calc(50% - 20px);">
+            </div>
+            
+            <div class="grid-galeria">
+                <div class="grid-item"><img src="Sahara2.jpeg" alt="Sahara 2"></div>
+                <div class="grid-item"><img src="Sahara4.jpeg" alt="Sahara 4"></div>
+                <div class="grid-item"><img src="Sahara5.jpeg" alt="Sahara 5"></div>
+            </div>
+
+            <div class="trio-sahara">
+                <img src="Sahara6.jpeg" alt="Sahara 6">
+                <img src="Sahara7.jpeg" alt="Sahara 7">
+                <img src="Sahara9.jpeg" alt="Sahara 9">
+            </div>
+        </section>
+
+        <section id="retangular" class="sessao">
+            <h2 class="titulo-secao">Retangular</h2>
+            <div class="foto-capa"><img src="Retangular1.jpeg" alt="Retangular 1"></div>
+            <div class="foto-grande"><img src="Retangular5.jpeg" alt="Retangular 5"></div>
+            <div class="grid-galeria" style="margin-bottom: 0;">
+                <div class="grid-item"><img src="Retangular2.jpeg" alt="Retangular 2"></div>
+                <div class="grid-item"><img src="Retangular3.jpeg" alt="Retangular 3"></div>
+                <div class="grid-item"><img src="Retangular4.jpeg" alt="Retangular 4"></div>
+            </div>
+        </section>
+
+        <section id="subsolo" class="sessao">
+            <h2 class="titulo-secao">Ocupação do subsolo</h2>
+            <div class="foto-capa"><img src="sub1.jpeg" alt="Subsolo 1"></div>
+            <div class="foto-capa"><img src="sub2.jpeg" alt="Subsolo 2"></div>
+            <div class="foto-capa"><img src="sub3.jpeg" alt="Subsolo 3"></div>
+            <div class="grid-galeria" style="display: flex; justify-content: center; margin-bottom: 0;">
+                <div class="grid-item" style="width: 33.3%;"><img src="sub4.jpeg" alt="Subsolo 4"></div>
+            </div>
+        </section>
+
+        <section id="caminho" class="sessao">
+            <h2 class="titulo-secao">Caminho</h2>
+            <div class="foto-capa"><img src="E1.jpeg" alt="Caminho Capa"></div>
+            <div class="grid-galeria" style="margin-bottom: 0;">
+                <div class="grid-item"><img src="E2.jpeg" alt="E2"></div>
+                <div class="grid-item"><img src="E3.jpeg" alt="E3"></div>
+                <div class="grid-item"><img src="E4.jpeg" alt="E4"></div>
+                <div class="grid-item"><img src="E6.jpeg" alt="E6"></div>
+                <div class="grid-item"><img src="E7.jpeg" alt="E7"></div>
+                <div class="grid-item"><img src="E8.jpeg" alt="E8"></div>
+            </div>
+        </section>
+
+        <section id="curvas" class="sessao">
+            <h2 class="titulo-secao">Curvas</h2>
+            <div class="foto-capa"><img src="C1.jpeg" alt="Curvas Capa"></div>
+            <div class="camada-grid">
+                <img src="C2.jpeg" alt="Curvas 2" style="width: calc(33.3% - 26px);">
+                <img src="C3.jpeg" alt="Curvas 3" style="width: calc(33.3% - 26px);">
+                <img src="C4.jpeg" alt="Curvas 4" style="width: calc(33.3% - 26px);">
+            </div>
+            <div class="grid-galeria" style="margin-bottom: 0;">
+                <div class="grid-item"><img src="C5.jpeg" alt="Curvas 5"></div>
+                <div class="grid-item"><img src="C6.jpeg" alt="Curvas 6"></div>
+                <div class="grid-item"><img src="C7.jpeg" alt="Curvas 7"></div>
+            </div>
+        </section>
+
+        <section id="peras" class="sessao">
+            <h2 class="titulo-secao">Peras</h2>
+            <div class="capa-dupla">
+                <img src="pera1.jpeg" alt="Pera 1" style="width: calc(50% - 20px);">
+                <img src="Pera2.jpeg" alt="Pera 2" style="width: calc(50% - 20px);">
+            </div>
+        </section>
+
+        <section id="outras-frutas" class="sessao">
+            <h2 class="titulo-secao">Outras frutas</h2>
+            <div class="foto-capa"><img src="N1.jpeg" alt="Outras frutas Capa"></div>
+        </section>
+
+        <section id="copos" class="sessao">
+            <h2 class="titulo-secao">Copos, xícaras e afins</h2>
+            <div class="foto-capa"><img src="copo1.jpeg" alt="Copo Capa"></div>
+            <div class="camada-mista">
+                <img src="M1.jpeg" alt="M1" class="img-igual-m1">
+                <img src="copo2.jpeg" alt="Copo 2" class="img-igual-m1">
+                <img src="copo3.jpeg" alt="Copo 3" class="img-igual-m1">
+            </div>
+        </section>
+
+        <section id="tropicais" class="sessao">
+            <h2 class="titulo-secao">Objetos tropicais</h2>
+            <div class="foto-capa"><img src="tropical3.jpeg" alt="Tropical 3"></div>
+            <div class="foto-capa"><img src="tropical4.jpeg" alt="Tropical 4"></div>
+            <div class="foto-capa"><img src="tropical.jpeg" alt="Tropical 1"></div>
+            <div class="foto-capa"><img src="tropical2.jpeg" alt="Tropical 2"></div>
+            <div class="foto-capa" style="margin-bottom: 0;"><img src="tropical5.jpeg" alt="Tropical 5"></div>
+        </section>
+
+        <section id="urbano" class="sessao">
+            <h2 class="titulo-secao">Urbano</h2>
+            <div class="foto-capa"><img src="U1.jpeg" alt="Urbano Capa"></div>
+            <div class="container-urbano-alinhado">
+                <img src="U3.jpeg" alt="Urbano 3" class="img-u3-alinhada">
+                <img src="U6.jpeg" alt="Urbano 6" class="img-u6-alinhada">
+            </div>
+            <div class="container-u4-alinhada">
+                <img src="U4.jpeg" alt="U4" class="img-u4-posicionada">
+            </div>
+        </section>
+
+        <section id="perfil" class="sessao">
+            <h2 class="titulo-secao">Perfil</h2>
+            <div class="foto-capa"><img src="P1.jpeg" alt="Perfil 1"></div>
+            <div class="foto-capa"><img src="P2.jpeg" alt="Perfil 2"></div>
+            <div class="foto-capa"><img src="P3.jpeg" alt="Perfil 3"></div>
+        </section>
+
+        <section id="experimental" class="sessao">
+            <h2 class="titulo-secao">Experimental</h2>
+            <div class="foto-capa"><img src="Exp1.jpeg" alt="Experimental 1"></div>
+            <div class="foto-capa"><img src="Exp2.jpeg" alt="Experimental 2"></div>
+        </section>
+
+        <section id="no-series" class="sessao">
+            <h2 class="titulo-secao">No series</h2>
+            <div class="foto-capa"><img src="Sem1.jpeg" alt="Sem série 1"></div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
