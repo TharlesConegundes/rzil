@@ -6,6 +6,9 @@
     <title>rzil</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* ==========================================
+           ESTILOS ORIGINAIS - DESKTOP (INTACTOS)
+           ========================================== */
         body {
             margin: 0;
             padding: 0;
@@ -241,12 +244,97 @@
             gap: 40px;
             width: 90%;
             max-width: 1200px;
-            margin-top: -110px; /* Reduz a distância entre o grid acima e este trio */
+            margin-top: -110px; 
             margin-bottom: 210px;
         }
         .trio-sahara img {
             width: calc(33.33% - 27px);
             height: auto;
+        }
+
+        /* ==========================================
+           NOVOS ESTILOS - APENAS PARA MOBILE (< 768px)
+           ========================================== */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Coloca o menu em cima e o conteúdo embaixo */
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative; /* Remove o menu lateral fixo */
+                padding: 30px 20px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .location-tag {
+                margin-bottom: 20px;
+                white-space: normal;
+            }
+
+            nav ul {
+                display: flex;
+                flex-wrap: wrap; /* Permite que os links fiquem em várias linhas se necessário */
+                gap: 15px;
+            }
+
+            nav ul li {
+                margin-bottom: 5px;
+            }
+
+            main {
+                margin-left: 0; /* Remove a margem do menu lateral */
+                padding: 40px 20px 100px 20px; /* Ajusta respiro lateral */
+            }
+
+            .titulo-secao {
+                margin-bottom: 40px;
+            }
+
+            .sessao {
+                margin-bottom: 120px !important; /* Reduz de 360px para 120px no celular */
+            }
+
+            /* Força TODOS os containers a 100% de largura no celular */
+            .foto-capa, .foto-grande, .capa-dupla, .camada-grid, 
+            .grid-galeria, .dupla-santos-grande, .container-urbano-alinhado, 
+            .container-u4-alinhada, .camada-mista, .trio-sahara,
+            #santos .foto-capa, #retangular .foto-capa, #caminho .foto-capa, 
+            #outras-frutas .foto-capa, #subsolo .foto-capa, #curvas .foto-capa, 
+            #copos .foto-capa, #tropicais .foto-capa, #no-series .foto-capa, 
+            #experimental .foto-capa, #urbano .foto-capa, #perfil .foto-capa,
+            #subsolo .capa-dupla, #tropicais .capa-dupla, #retangular .camada-grid, 
+            #curvas .camada-grid, #copos .camada-mista, #sahara .capa-dupla, #peras .capa-dupla {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-bottom: 40px !important; /* Reduz distâncias entre blocos de foto */
+                margin-top: 0 !important; /* Remove margens negativas como a do Sahara */
+            }
+
+            /* Empilha fotos que estavam lado a lado */
+            .capa-dupla, .camada-grid, .dupla-santos-grande, 
+            .container-urbano-alinhado, .camada-mista, .trio-sahara,
+            .container-u4-alinhada {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            /* Transforma o Grid em uma coluna única */
+            .grid-galeria {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            /* Ignora estilos inline de width (como os de 33% ou 50%) nas tags img */
+            .capa-dupla img, .camada-grid img, .dupla-santos-grande img, 
+            .trio-sahara img, .img-u3-alinhada, .img-u6-alinhada, 
+            .img-u4-posicionada, .img-igual-m1, .grid-item, .grid-item img {
+                width: 100% !important;
+                height: auto !important;
+            }
         }
     </style>
 </head>
