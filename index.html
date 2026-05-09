@@ -201,6 +201,21 @@
             display: block;
         }
 
+        /* AJUSTE ESPECÍFICO SEM2 (Centralizado e +10% de largura que U4) */
+        .container-sem2-ajustada {
+            width: 80% !important;
+            max-width: 960px !important;
+            display: flex !important;
+            justify-content: center !important; 
+            margin-bottom: 210px;
+        }
+
+        .img-sem2-redimensionada {
+            width: calc(68.5% - 20px) !important; 
+            height: auto;
+            display: block;
+        }
+
         #perfil .foto-capa {
             width: 63.75%;
             max-width: 850px;
@@ -236,7 +251,6 @@
             max-width: 1200px; 
         }
 
-        /* CONTAINER TRIO SAHARA - AJUSTADO DISTÂNCIA */
         .trio-sahara {
             display: flex;
             justify-content: center;
@@ -253,85 +267,36 @@
         }
 
         /* ==========================================
-           NOVOS ESTILOS - APENAS PARA MOBILE (< 768px)
-           ========================================== */
+            NOVOS ESTILOS - APENAS PARA MOBILE (< 768px)
+            ========================================== */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column; /* Coloca o menu em cima e o conteúdo embaixo */
-            }
-
-            nav {
-                width: 100%;
-                height: auto;
-                position: relative; /* Remove o menu lateral fixo */
-                padding: 30px 20px;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .location-tag {
-                margin-bottom: 20px;
-                white-space: normal;
-            }
-
-            nav ul {
-                display: flex;
-                flex-wrap: wrap; /* Permite que os links fiquem em várias linhas se necessário */
-                gap: 15px;
-            }
-
-            nav ul li {
-                margin-bottom: 5px;
-            }
-
-            main {
-                margin-left: 0; /* Remove a margem do menu lateral */
-                padding: 40px 20px 100px 20px; /* Ajusta respiro lateral */
-            }
-
-            .titulo-secao {
-                margin-bottom: 40px;
-            }
-
-            .sessao {
-                margin-bottom: 120px !important; /* Reduz de 360px para 120px no celular */
-            }
-
-            /* Força TODOS os containers a 100% de largura no celular */
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; position: relative; padding: 30px 20px; border-bottom: 1px solid #f0f0f0; }
+            .location-tag { margin-bottom: 20px; white-space: normal; }
+            nav ul { display: flex; flex-wrap: wrap; gap: 15px; }
+            nav ul li { margin-bottom: 5px; }
+            main { margin-left: 0; padding: 40px 20px 100px 20px; }
+            .titulo-secao { margin-bottom: 40px; }
+            .sessao { margin-bottom: 120px !important; }
             .foto-capa, .foto-grande, .capa-dupla, .camada-grid, 
             .grid-galeria, .dupla-santos-grande, .container-urbano-alinhado, 
-            .container-u4-alinhada, .camada-mista, .trio-sahara,
-            #santos .foto-capa, #retangular .foto-capa, #caminho .foto-capa, 
-            #outras-frutas .foto-capa, #subsolo .foto-capa, #curvas .foto-capa, 
-            #copos .foto-capa, #tropicais .foto-capa, #no-series .foto-capa, 
-            #experimental .foto-capa, #urbano .foto-capa, #perfil .foto-capa,
-            #subsolo .capa-dupla, #tropicais .capa-dupla, #retangular .camada-grid, 
-            #curvas .camada-grid, #copos .camada-mista, #sahara .capa-dupla, #peras .capa-dupla {
+            .container-u4-alinhada, .container-sem2-ajustada, .camada-mista, .trio-sahara {
                 width: 100% !important;
                 max-width: 100% !important;
-                margin-bottom: 40px !important; /* Reduz distâncias entre blocos de foto */
-                margin-top: 0 !important; /* Remove margens negativas como a do Sahara */
+                margin-bottom: 40px !important; 
+                margin-top: 0 !important; 
             }
-
-            /* Empilha fotos que estavam lado a lado */
             .capa-dupla, .camada-grid, .dupla-santos-grande, 
             .container-urbano-alinhado, .camada-mista, .trio-sahara,
-            .container-u4-alinhada {
+            .container-u4-alinhada, .container-sem2-ajustada {
                 display: flex !important;
                 flex-direction: column !important;
                 gap: 20px !important;
             }
-
-            /* Transforma o Grid em uma coluna única */
-            .grid-galeria {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 20px !important;
-            }
-
-            /* Ignora estilos inline de width (como os de 33% ou 50%) nas tags img */
+            .grid-galeria { display: flex !important; flex-direction: column !important; gap: 20px !important; }
             .capa-dupla img, .camada-grid img, .dupla-santos-grande img, 
             .trio-sahara img, .img-u3-alinhada, .img-u6-alinhada, 
-            .img-u4-posicionada, .img-igual-m1, .grid-item, .grid-item img {
+            .img-u4-posicionada, .img-sem2-redimensionada, .img-igual-m1, .grid-item, .grid-item img {
                 width: 100% !important;
                 height: auto !important;
             }
@@ -341,10 +306,7 @@
 <body>
 
     <nav>
-        <div class="location-tag">
-            Brazilian artist. Based in São Paulo.<br>
-            @b.rzil
-        </div>
+        <div class="location-tag">Brazilian artist. Based in São Paulo.<br>@b.rzil</div>
         <ul>
             <li><a href="#santos">Santos</a></li>
             <li><a href="#sahara">Sahara</a></li>
@@ -372,7 +334,6 @@
                 <div class="grid-item"><img src="santos3.jpeg" alt="Santos 3"></div>
                 <div class="grid-item"><img src="santos5.jpeg" alt="Santos 5"></div>
             </div>
-            
             <div class="dupla-santos-grande">
                 <img src="santos4.jpeg" alt="Santos 4">
                 <img src="santos6.jpeg" alt="Santos 6">
@@ -385,13 +346,11 @@
                 <img src="Sahara1.jpeg" alt="Sahara 1" style="width: calc(50% - 20px);">
                 <img src="Sahara3.jpeg" alt="Sahara 3" style="width: calc(50% - 20px);">
             </div>
-            
             <div class="grid-galeria">
                 <div class="grid-item"><img src="Sahara2.jpeg" alt="Sahara 2"></div>
                 <div class="grid-item"><img src="Sahara4.jpeg" alt="Sahara 4"></div>
                 <div class="grid-item"><img src="Sahara5.jpeg" alt="Sahara 5"></div>
             </div>
-
             <div class="trio-sahara">
                 <img src="Sahara6.jpeg" alt="Sahara 6">
                 <img src="Sahara7.jpeg" alt="Sahara 7">
@@ -490,6 +449,12 @@
             <div class="container-u4-alinhada">
                 <img src="U4.jpeg" alt="U4" class="img-u4-posicionada">
             </div>
+            <div class="container-u4-alinhada">
+                <img src="U7.jpeg" alt="U7" class="img-u4-posicionada">
+            </div>
+            <div class="container-u4-alinhada">
+                <img src="U8.jpeg" alt="U8" class="img-u4-posicionada">
+            </div>
         </section>
 
         <section id="perfil" class="sessao">
@@ -508,6 +473,10 @@
         <section id="no-series" class="sessao">
             <h2 class="titulo-secao">No series</h2>
             <div class="foto-capa"><img src="Sem1.jpeg" alt="Sem série 1"></div>
+            <!-- Sem2: Centralizada e 10% maior que o padrão U4 -->
+            <div class="container-sem2-ajustada">
+                <img src="Sem2.jpeg" alt="Sem série 2" class="img-sem2-redimensionada">
+            </div>
         </section>
     </main>
 
@@ -518,10 +487,7 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: targetElement.offsetTop, behavior: 'smooth' });
                 }
             });
         });
