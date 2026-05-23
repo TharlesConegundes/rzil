@@ -201,21 +201,6 @@
             display: block;
         }
 
-        /* AJUSTE ESPECÍFICO SEM2 (Centralizado e +10% de largura que U4) */
-        .container-sem2-ajustada {
-            width: 80% !important;
-            max-width: 960px !important;
-            display: flex !important;
-            justify-content: center !important; 
-            margin-bottom: 210px;
-        }
-
-        .img-sem2-redimensionada {
-            width: calc(68.5% - 20px) !important; 
-            height: auto;
-            display: block;
-        }
-
         #perfil .foto-capa {
             width: 63.75%;
             max-width: 850px;
@@ -251,6 +236,50 @@
             max-width: 1200px; 
         }
 
+        /* ==========================================
+           AJUSTE EXCLUSIVO PARA A SEÇÃO PERAS
+           ========================================== */
+        #peras .foto-pera-expandida {
+            width: 60.75%; 
+            max-width: 810px;
+            margin-bottom: 210px;
+        }
+
+        #peras .foto-pera-expandida img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #peras .container-pera2-recuada {
+            width: 60.75%; 
+            max-width: 810px;
+            display: flex;
+            justify-content: flex-start; 
+            margin-bottom: 210px;
+        }
+
+        #peras .img-pera2-reduzida {
+            width: 70% !important; 
+            height: auto !important;
+            display: block;
+        }
+
+        /* ==========================================
+           AJUSTE EXCLUSIVO ESPIRAIS E OUTRAS COMPLEXIDADES
+           ========================================== */
+        #espirais .foto-espiral-reduzida {
+            width: 52.5%; 
+            max-width: 700px;
+            margin-bottom: 210px;
+        }
+
+        #espirais .foto-espiral-reduzida img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .trio-sahara {
             display: flex;
             justify-content: center;
@@ -267,8 +296,8 @@
         }
 
         /* ==========================================
-            NOVOS ESTILOS - APENAS PARA MOBILE (< 768px)
-            ========================================== */
+           NOVOS ESTILOS - APENAS PARA MOBILE (< 768px)
+           ========================================== */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             nav { width: 100%; height: auto; position: relative; padding: 30px 20px; border-bottom: 1px solid #f0f0f0; }
@@ -278,7 +307,7 @@
             main { margin-left: 0; padding: 40px 20px 100px 20px; }
             .titulo-secao { margin-bottom: 40px; }
             .sessao { margin-bottom: 120px !important; }
-            .foto-capa, .foto-grande, .capa-dupla, .camada-grid, 
+            .foto-capa, .foto-grande, .capa-dupla, .camada-grid, .foto-pera-expandida, .container-pera2-recuada, .foto-espiral-reduzida,
             .grid-galeria, .dupla-santos-grande, .container-urbano-alinhado, 
             .container-u4-alinhada, .container-sem2-ajustada, .camada-mista, .trio-sahara {
                 width: 100% !important;
@@ -288,15 +317,15 @@
             }
             .capa-dupla, .camada-grid, .dupla-santos-grande, 
             .container-urbano-alinhado, .camada-mista, .trio-sahara,
-            .container-u4-alinhada, .container-sem2-ajustada {
+            .container-u4-alinhada, .container-sem2-ajustada, .container-pera2-recuada {
                 display: flex !important;
                 flex-direction: column !important;
                 gap: 20px !important;
             }
             .grid-galeria { display: flex !important; flex-direction: column !important; gap: 20px !important; }
-            .capa-dupla img, .camada-grid img, .dupla-santos-grande img, 
-            .trio-sahara img, .img-u3-alinhada, .img-u6-alinhada, 
-            .img-u4-posicionada, .img-sem2-redimensionada, .img-igual-m1, .grid-item, .grid-item img {
+            .capa-dupla img, .camada-grid img, .dupla-santos-grande img, .foto-pera-expandida img,
+            .trio-sahara img, .img-u3-alinhada, .img-u6-alinhada, .img-pera2-reduzida, .foto-espiral-reduzida img,
+            .img-u4-posicionada, .grid-item, .grid-item img {
                 width: 100% !important;
                 height: auto !important;
             }
@@ -322,6 +351,7 @@
             <li><a href="#perfil">Perfil</a></li>
             <li><a href="#experimental">Experimental</a></li>
             <li><a href="#no-series">No series</a></li>
+            <li><a href="#espirais">Espirais e outras complexidades</a></li>
         </ul>
     </nav>
 
@@ -409,9 +439,11 @@
 
         <section id="peras" class="sessao">
             <h2 class="titulo-secao">Peras</h2>
-            <div class="capa-dupla">
-                <img src="pera1.jpeg" alt="Pera 1" style="width: calc(50% - 20px);">
-                <img src="Pera2.jpeg" alt="Pera 2" style="width: calc(50% - 20px);">
+            <div class="foto-pera-expandida">
+                <img src="pera1.jpeg" alt="Pera 1">
+            </div>
+            <div class="container-pera2-recuada">
+                <img src="Pera2.jpeg" alt="Pera 2" class="img-pera2-reduzida">
             </div>
         </section>
 
@@ -473,9 +505,13 @@
         <section id="no-series" class="sessao">
             <h2 class="titulo-secao">No series</h2>
             <div class="foto-capa"><img src="Sem1.jpeg" alt="Sem série 1"></div>
-            <!-- Sem2: Centralizada e 10% maior que o padrão U4 -->
-            <div class="container-sem2-ajustada">
-                <img src="Sem2.jpeg" alt="Sem série 2" class="img-sem2-redimensionada">
+            <div class="foto-capa"><img src="Sem2.jpeg" alt="Sem série 2"></div>
+        </section>
+
+        <section id="espirais" class="sessao">
+            <h2 class="titulo-secao">Espirais e outras complexidades</h2>
+            <div class="foto-espiral-reduzida">
+                <img src="Espiral1.jpeg" alt="Espiral 1">
             </div>
         </section>
     </main>
